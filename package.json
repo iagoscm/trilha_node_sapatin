@@ -1,0 +1,23 @@
+{
+  "name": "trilha_node_sapatin",
+  "version": "1.0.0",
+  "description": "Projeto para aprender nodeJS fazendo uma to-do list",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iagoscm/trilha_node_sapatin.git"
+  },
+  "author": "Iagow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iagoscm/trilha_node_sapatin/issues"
+  },
+  "homepage": "https://github.com/iagoscm/trilha_node_sapatin#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
