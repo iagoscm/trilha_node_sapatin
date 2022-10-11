@@ -8,20 +8,43 @@
     <title>To Do List</title>
 </head>
 <body>
+    <header>
+        <%if (task == null) {%>
+            <form action="/create" method="post">
+                <input type="text" name="task" id="task" placeholder="Insira uma Tarefa">
+                <button id="addButton" type="submit">Adicionar</button>
+            </form>
+        <%} else {%>
+            <form action="/update/<%= task._id %>" method="post">
+                <input type="text" name="task" id="task" value="<%= task.task %>">
+                <button id="addButton" type="submit">Atualizar</button>
+            </form>
+        <%}%>
+    </header>
 
-    <form action="/create" method="post">
-        <input type="text" name="task" id="task" placeholder="Insira uma Tarefa">
-        <button id="addButton" type="submit">Adicionar</button>
-    </form>
 
+    <section id="tasks">
+        <ul>
+            <% tasksList.forEach((task) => { %>
+                <li>
+                    <span><%= task.task %></span>
+                    <a href="/getById/<%= task._id %>/update">Editar</a>
+                    <a href="/getById/<%= task._id %>/delete">Excluir</a>
+                </li>
+            <% }) %>
+        </ul>
+    </section>
 
+    <% if (taskDelete != null) { %>}
+        <section id:"modal">
+            <div id:"modal">
+                <a href="/">x</a>
+                <h2>Tem certeza que deseja excluir?</h2>
+                <a href="/" >Cancelar</a>
+                <a href="/delete/<%= taskDelete._id %>" >Confirmar</a>
+            </div>
+        </section>
+    <% } %>
 
-    <ul>
-        <% tasksList.forEach((task) => { %>
-            <li>
-                <span><%= task.task %> | <%= task.date.toLocaleDateString('pt-br') %></span>
-            </li>
-        <% }) %>
-    </ul>
 </body>
 </html>
